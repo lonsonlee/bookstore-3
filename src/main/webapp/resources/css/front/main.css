@@ -1,0 +1,260 @@
+
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 16px;
+}
+body,html {
+margin:0;
+padding:0;
+color:#000;
+background:#a7a09a;
+}
+
+#wrap {
+	width:1150px;
+	margin:0 auto;
+	background:#ddd;
+}
+
+#main {
+	float:right;
+	width:1000px;
+	height:1500px;
+	background:#FFFFFF;
+}
+
+#sidebar {
+	float:left;
+	width:150px;
+	
+}
+
+#header{
+	background:#ddd;
+	height:30px;
+}
+
+#LogAndRegNav{
+	height:30px;
+	
+	width:400px;
+	float:left;
+	list-style-type:none;
+}
+
+#LogAndRegNav li{
+	display:inline;
+}
+
+#LogAndRegNav li a{
+	text-decoration: none;
+	padding-right:20px;
+	color:#8D586C;
+	font-weight:bold;
+}
+
+#LogAndRegNav li a:hover{
+	color:#C81522;
+}
+
+#userNavDiv{
+	background:#ddd;
+	line-height:30px;
+	height:30px;
+	
+}
+
+#userNav{
+	width:440px;
+	float:right;
+	list-style-type:none;
+}
+
+#userNav li{
+	display:inline;
+	
+}
+
+
+
+#userNav li a{
+	text-decoration: none;
+	padding-right:20px;
+	color:#8D586C;
+	font-weight:bold;
+	
+}
+
+#userNav li a:hover{
+	color:#C81522;
+}
+
+#searchDiv{
+	width:500px;
+	margin-top:20px;
+	margin-left:250px;
+	
+	
+}
+
+
+
+#searchInput{
+	width:300px;
+	height:30px;
+}
+
+#searchSubmit{
+	height:30px;
+}
+
+#itemsTitleDiv{
+	width:300px;
+	margin-top:50px;
+	margin-left:20px;
+	color:#487A6F;
+	font-weight:bold;
+}
+
+.bookListDiv{
+	width:980px;
+	height:1300px;
+	padding-left:20px;
+}
+
+
+
+hr{
+	width:200px;
+	margin-left:0px;
+}
+	
+
+#nav{
+ list-style: none;
+ background: #F2DEDE;
+ font-weight: bold;
+ font-size: 14px;
+ padding: 0px;
+ margin: 0px auto auto 0px;
+ position:relative;
+ top:0px;
+ width: 150px;
+ text-align: left;
+}
+
+
+#nav a {
+ 
+ width: 150px;
+ 
+ color: #333333;
+ text-decoration: none;
+ text-align: center;
+ 
+ text-align: left;
+ padding-left: 10px;
+}
+#nav a:hover{
+ color: #C81522;
+}
+
+#nav li {
+ line-height: 30px;
+ position: relative;
+}
+#nav li div {
+ position: absolute;
+ background-color:#E0F1FF;
+ left: -999em;
+ width: 300px;
+ height:300px;
+ font-weight: normal;
+ margin: 0px;
+ padding: 0px;
+}
+
+
+#nav li:hover div{
+ left: 150px;
+ top: 0px;
+}
+
+#nav li:hover{
+ background: #F5E3C0;
+}
+
+
+
+
+
+
+
+
+
+
+.pic{
+	
+	margin-bottom: 3px; 
+	width: 200px; 
+	height: 200px; 
+}
+
+.itemDiv{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	word-break:keep-all;
+	white-space:nowrap; 
+	border: solid 3px #fff; 
+	padding: 16px 16px 0; 
+	float:left;
+	margin-top:10px;
+}
+
+.itemDiv:hover{
+	border:3px solid #FFCFB1;
+}
+
+
+
+
+
+
+.price {
+	padding-bottom: 3px; 
+	color: #878787; 
+}
+.price_c {
+	color: #c30; 
+	font-weight: bold; 
+	padding-right: 10px; 
+	font-family: Arial; 
+}
+.price_d {
+	color: #c30; 
+	font-family: Arial; 
+}
+.price_p {
+	color: #878787; 
+	text-decoration: line-through; 
+	padding-right: 10px; 
+	font-family: Arial; 
+}
+#bookname {
+	text-decoration:underline; 
+	color:#555555; display: block;
+	overflow: hidden; 
+	width: 200px; 
+	font-family: Arial; 
+}
+#bookname:hover {
+	color:#FF6600; 
+}
+.itemDiv a {
+	color: #005AA0;
+	font-size:14px;
+	text-decoration:none;
+}
+.itemDiv a:hover {color:#FF6600; }
+.itemDiv a:VISITED {color:#018BD3;}
+

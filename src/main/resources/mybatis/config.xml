@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!-- <settings>
+    <setting name="useGeneratedKeys" value="false"/>
+    <setting name="useColumnLabel" value="true"/>
+  </settings>
+
+  <typeAliases>
+    <typeAlias alias="UserAlias" type="org.apache.ibatis.submitted.complex_property.User"/>
+  </typeAliases> -->
+  <typeAliases>
+  	<typeAlias type="com.risen.bean.User" alias="User"/>
+  	<typeAlias type="com.risen.bean.Category" alias="Category"/>
+  	<typeAlias type="com.risen.bean.Book" alias="Book"/>
+  	<typeAlias type="com.risen.bean.CartItem" alias="CartItem"/>
+  	<typeAlias type="com.risen.bean.Order" alias="Order"/>
+  	<typeAlias type="com.risen.bean.OrderItem" alias="OrderItem"/>
+  	<typeAlias type="com.risen.bean.Bank" alias="Bank"/>
+  </typeAliases>
+  
+
+  <mappers>
+	
+  </mappers> 
+
+</configuration>

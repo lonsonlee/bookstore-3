@@ -1,0 +1,113 @@
+table {
+	font-size: 10pt;
+	font-family: SimSun;
+	border-color: #efeae5;
+	border-style: solid;
+	border-width: 5px;
+	color: #404040;
+	width:95%;
+	align:center;
+	cellpadding:0;
+	cellspacing:0;
+}
+
+td {
+	border-color: #efeae5;
+	border-style: solid;
+	border-width: 0;
+	border-bottom-width: 1px;
+	padding: 10px;
+}
+
+#linkSubmit {
+	background: url(/bookstore/resources/images/common/icon2.png) no-repeat;
+	display: inline-block;
+	background-position: 0px -35px;
+	height: 40px;
+	width: 190px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: 900;
+	color: #ffffff;
+	font-family: 宋体;
+	line-height: 40px;
+}
+
+#linkSubmit:HOVER {
+	background: url(/bookstore/resources/images/common/icon2.png) no-repeat;
+	display: inline-block;
+	background-position: 0px -75px;
+	height: 40px;
+	width: 190px;
+}
+
+a {
+	text-decoration: none;
+	color: #018BD3;
+}
+
+a:visited {
+	color: #018BD3;
+}
+
+a:hover {
+	color: #FF6600;
+	text-decoration: underline;
+}
+
+.price_st {
+	color: #c30;
+	font-weight: bold;
+	padding-right: 10px;
+	font-family: Arial;
+}
+
+.price_t {
+	color: #c30;
+	font-weight: bold;
+	padding-right: 10px;
+	font-family: Arial;
+	font-size: 15pt;
+}
+
+a.linkImage {
+	display: inline-block;
+	border: 1px solid #ffffff;
+}
+
+a.linkImage:HOVER {
+	display: inline-block;
+	border: 1px solid #d0d0d0;
+}
+
+a.link2:active {
+	border: 1px dotted #404040;
+}
+
+#infoTitleTd{
+	background-color:#efeae5;
+	font-weight:900;	
+}
+
+input{
+	margin-top:10px;
+	height: 32px;
+	border: 1px solid #7f9db9;
+	padding-left: 10px;
+	line-height: 32px;
+}
+
+#address {
+	width: 500px;
+	
+}
+.linkImage img{
+	border:0;
+	width:54px;
+	align:top;
+}
+#submitTd{
+	border-top-width: 4px;
+	align:right;
+}

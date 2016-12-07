@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.risen.dao.BookMapper">
+
+  <resultMap type="Book" id="bookResult">
+    <id column="bid" jdbcType="INTEGER" property="bid"/>
+    <result column="bname" jdbcType="VARCHAR" property="bname"/>
+    <result column="author" jdbcType="VARCHAR" property="author"/>
+    <result column="pricing" jdbcType="DOUBLE" property="pricing"/>
+    <result column="currPrice" jdbcType="DOUBLE" property="currPrice"/>
+    <result column="discount" jdbcType="DOUBLE" property="discount"/>
+    <result column="press" jdbcType="DOUBLE" property="press"/>
+    <result column="publicationTime" jdbcType="VARCHAR" property="publicationTime"/>
+    <result column="edition" jdbcType="INTEGER" property="edition"/>
+    <result column="pageNum" jdbcType="INTEGER" property="pageNum"/>
+    <result column="wordNum" jdbcType="INTEGER" property="wordNum"/>
+    <result column="printTime" jdbcType="VARCHAR" property="printTime"/>
+    <result column="bookSize" jdbcType="INTEGER" property="bookSize"/>
+    <result column="paperCharacter" jdbcType="VARCHAR" property="paperCharacter"/>
+    <result column="image_w" jdbcType="VARCHAR" property="image_w"/>
+    <result column="image_b" jdbcType="VARCHAR" property="image_b"/>
+    <result column="cid" jdbcType="INTEGER" property="cid"/>
+    
+  </resultMap>
+  
+  <!-- 图书查询动态sql -->
+  <select id="queryBookList" parameterType="map" resultMap="bookResult">
+  	select bid,bname,currPrice,pricing,image_b,press,author,discount,publicationTime from t_book where 
+  	
+  	<!-- 1.按照书名模糊查询 -->
+  	<if test="book.bname!=null&amp;&amp;!&quot;&quot;.equals(book.bname.trim())">
+  	bname like '%' #{book.bname} '%'
+  	</if>
+  	<!-- 2.按照分类查询 -->
+  	<if test="book.cid!=0">
+  	cid=#{book.cid}
+  	</if>
+  	<!-- 3.按照作者查询 -->
+  	<if test="book.author!=null&amp;&amp;!&quot;&quot;.equals(book.author.trim())">
+  	author=#{book.author}
+  	</if>
+  	<!-- 4.按照出版社查询 -->
+  	<if test="book.press!=null&amp;&amp;!&quot;&quot;.equals(book.press.trim())">
+  	press=#{book.press}
+  	</if>
+  	order by bid desc
+  	limit #{paging.limitIndex},#{paging.limitSpan};
+  </select>
+  
+  
+  
+  <!-- 获取paging对象的totalItems参数 -->
+  <select id="getTotalItems" parameterType="Book" resultType="int">
+  	select count(*) from t_book where 
+  	<!-- 1.按照书名模糊查询 -->
+  	<if test="bname!=null&amp;&amp;!&quot;&quot;.equals(bname.trim())">
+  	bname like '%' #{bname} '%'
+  	</if>
+  	<!-- 2.按照分类查询 -->
+  	<if test="cid!=0">
+  	cid=#{cid}
+  	</if>
+  	<!-- 3.按照作者查询 -->
+  	<if test="author!=null&amp;&amp;!&quot;&quot;.equals(author.trim())">
+  	author=#{author}
+  	</if>
+  	<!-- 4.按照出版社查询 -->
+  	<if test="press!=null&amp;&amp;!&quot;&quot;.equals(press.trim())">
+  	press=#{press}
+  	</if>
+  </select>
+  
+  <sql id="detailColumns">
+  	bid,bname,author,pricing,currPrice,discount,press,publicationTime,edition,pageNum,wordNum,
+  	printTime,bookSize,paperCharacter,image_w
+  </sql>
+  
+  <!-- 按书id查询 -->
+  <select id="queryByBid" parameterType="int" resultMap="bookResult">
+  	select <include refid="detailColumns"/> from t_book where bid=#{_parameter}; 
+  </select>
+  
+  <!-- 查询主页默认的图书列表 -->
+  <select id="queryHomePageList" parameterType="int" resultMap="bookResult">
+  	select bid,bname,currPrice,pricing,image_b,press,author,discount,publicationTime from t_book where
+  	cid=#{_parameter} order by bid desc limit 0,12;
+  </select>
+</mapper>

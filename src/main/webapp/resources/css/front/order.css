@@ -1,0 +1,62 @@
+table {
+	font-size: 10pt;
+	margin-top:20px;
+	cellpadding:0;
+	cellspacing:0;
+	border-collapse:collapse;
+}
+#titleTable{
+	background-color:#F5F5F5;
+}
+
+#backToMain{
+	width:95%;
+	margin-left:5%;
+	margin-top:25px;
+	margin-bottom:20px;
+}
+
+td {
+	height:35px;
+	border:1px solid #E5E5E5;
+	padding-left:5px;
+	
+}
+
+.deleteTd{
+	text-align:right;
+}
+
+#deleteA{
+	margin-right:20px;
+}
+
+body {
+	font-size: 10pt;
+	color: #404040;
+}
+
+.orderTitleTr{
+	background-color:#F5F5F5;
+}
+
+
+img{
+	width:50px;
+	float:left;
+	margin-right:20px;
+}
+
+
+
+.bnameDiv{
+	margin-top:10px;
+}
+
+a{
+	color:#018BD3;
+	text-decoration:none;
+}
+a:hover {
+	color: #FF6600;
+}

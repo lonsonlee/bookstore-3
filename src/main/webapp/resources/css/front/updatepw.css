@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+ 
+ #logoDiv{
+ 	width:600px;
+ 	height:50px;
+ 	margin:40px auto auto;
+ 	text-align:center;
+ }
+ 
+ img{
+ 	width:60px;
+ 	height:60px;
+ }
+ 
+#errorDiv{
+	border:1px solid #D8DEE2;
+	border-radius:7px;
+	width:600px;
+	height:100px;
+	line-height:100px;
+	margin:30px auto auto;
+	text-align:center;
+} 
+ 
+#formDiv,#titleDiv{
+	border:1px solid #D8D8D8;  
+	width:600px;
+	margin:0 auto;
+	padding-left:10px;
+}
+
+#titleDiv{
+	border-bottom:0px;
+	height:35px;
+	line-height:35px;
+	background-color:#F5F5F5;
+	color:#333333;
+	font-weight:bold;
+	margin-top:20px;
+}
+
+#formDiv{
+	padding-top:10px;
+	padding-bottom:10px;
+	
+}
+
+.input{
+	width:350px;
+	height:35px;
+	border:1px solid #D8D8D8; 
+	background-color:#FAFAFA;
+	border-radius:3px;
+	padding-left:10px;
+}
+
+#submitBtn{
+	width:150px;
+	background-color:#F5F5F5;
+	color:#333333;
+	font-weight:bold;
+	height:35px;
+	border:1px solid #D8D8D8;
+	border-radius:5px; 
+}
+
+#submitBtn:hover{
+	background-color:#EBEBEB;
+}
+
+.inputTitleDiv{
+	margin-top:20px;
+	margin-bottom:10px;
+	color:#666666;
+	font-weight:bold;
+}
+
+#submitDiv{
+	margin-top:20px;
+}
+
+a{
+	text-decoration:none;
+	color:#4078C0;
+	font-size:14px;
+} 
+
+.error{
+	color:#C16363;
+	font-size:16px;
+	font-weight:600;
+}

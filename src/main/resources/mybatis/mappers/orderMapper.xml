@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.risen.dao.OrderMapper">
+
+  <resultMap type="Order" id="orderResult">
+    <id column="oid" jdbcType="VARCHAR" property="oid"/>
+    <result column="orderTime" jdbcType="VARCHAR" property="orderTime"/>
+    <result column="total" jdbcType="DOUBLE" property="total"/>
+    <result column="status" jdbcType="INTEGER" property="status"/>
+    <result column="consignee" jdbcType="VARCHAR" property="consignee"/>
+    <result column="phone" jdbcType="VARCHAR" property="phone"/>
+    <result column="address" jdbcType="VARCHAR" property="address"/>
+   
+     
+    <collection property="orderItemList" resultMap="com.risen.dao.OrderItemMapper.orderItemResult"/>
+  </resultMap>
+  
+  <!-- 新增订单 -->
+  <insert id="addOrder" parameterType="Order">
+  	insert into t_order values
+  	(#{oid},#{orderTime},#{total},#{status},#{consignee},#{phone},#{address},#{user.loginname});
+  </insert>
+  
+  
+  <!-- 获取用户所有订单（按照loginname查询），按照order表分页 -->
+  <select id="queryByLoginname" parameterType="map" resultMap="orderResult">
+  	select od.oid,od.orderTime,od.consignee,od.total,od.status,ob.bid,ob.bname,ob.currPrice,ob.quantity,ob.image_b from 
+
+(SELECT o.oid,o.orderTime,o.consignee,o.total,o.status 
+ from t_order o 
+ where o.loginname=#{loginname} ORDER BY o.orderTime DESC 
+ LIMIT #{paging.limitIndex},#{paging.limitSpan}) od     			<!-- 子表1 -->
+
+  	INNER JOIN 
+
+(SELECT b.bid,b.bname,b.currPrice,b.image_b,oi.quantity,oi.oid from
+ t_orderitem oi INNER JOIN t_book b on b.bid=oi.bid) ob             <!-- 子表2 -->
+
+on od.oid=ob.oid ORDER BY od.orderTime DESC;
+  </select>
+  
+  <!-- 计算用户订单总数 -->
+  <select id="countOrder" parameterType="String" resultType="int">
+  select count(*) from t_order where loginname=#{_parameter};
+  </select>
+  
+  <!-- 按照oid删除order和orderItem -->
+  <delete id="deleteByOid" parameterType="String">
+  	delete o,oi from t_order o INNER JOIN t_orderitem oi on o.oid=oi.oid where o.oid=#{_parameter};
+  </delete>
+  
+  <!-- 更新订单状态 -->
+  <update id="updateOrderStatus" parameterType="Order">
+  	update t_order set status=#{status} where oid=#{oid};
+  </update>
+  
+  <!-- 查看订单状态 -->
+  <select id="queryOrderStatus" parameterType="String" resultType="int">
+  	select status from t_order where oid=#{_parameter};
+  </select>
+  
+</mapper>

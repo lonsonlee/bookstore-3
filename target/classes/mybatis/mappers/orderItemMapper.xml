@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.risen.dao.OrderItemMapper">
+
+  <resultMap type="OrderItem" id="orderItemResult">
+    <id column="orderItemId" jdbcType="INTEGER" property="orderItemId"/>
+    <result column="quantity" jdbcType="INTEGER" property="quantity"/>
+    <result column="subtotal" jdbcType="DOUBLE" property="subtotal"/>
+    <association property="book" resultMap="com.risen.dao.BookMapper.bookResult"/>
+    <association property="order" resultMap="com.risen.dao.OrderMapper.orderResult"/> 
+  </resultMap>
+  	
+  	<!-- 批量新增订单条目 -->
+  <insert id="addOrderItems" parameterType="list">
+   	 insert into t_orderitem (quantity,subtotal,bid,oid) values
+   	 <foreach collection="list" item="item" separator=",">
+   	 	(#{item.quantity},#{item.subtotal},#{item.book.bid},#{item.order.oid})
+   	 </foreach>
+   	 ;
+  </insert>
+</mapper>

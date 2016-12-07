@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.risen.dao.UserMapper">
+
+  <resultMap type="User" id="userResult">
+    <id column="uid" jdbcType="CHAR" property="uid"/>
+    <result column="loginname" jdbcType="VARCHAR" property="loginname"/>
+    <result column="loginpass" jdbcType="VARCHAR" property="loginpass"/>
+    <result column="email" jdbcType="VARCHAR" property="email"/>
+    <result column="status" jdbcType="BOOLEAN" property="status"/>
+    <result column="activationCode" jdbcType="VARCHAR" property="activationCode"/>
+  </resultMap>
+  
+  <!--查询用户名是否存在  -->
+  <select id="validateLoginname" parameterType="String" resultType="int">
+  	select count(*) from t_user where loginname=#{_parameter};
+  </select>
+  
+  <!-- 查询邮件是否存在 -->
+  <select id="validateEmail" parameterType="String" resultType="int">
+  	select count(*) from t_user where email=#{_parameter}; 
+  </select>
+  
+  <!-- 添加新用户 -->
+  <insert id="addUser" parameterType="User">
+  	insert into t_user(uid,loginname,loginpass,email,status,activationCode) 
+  	values(#{uid},#{loginname},#{loginpass},#{email},#{status},#{activationCode});
+  </insert>
+  
+  <!-- 按照激活码查询 -->
+  <select id="queryByActivationCode" parameterType="String" resultMap="userResult">
+  	 select uid,loginname,loginpass,status,activationCode from t_user where activationCode=#{_parameter};
+  </select>
+  
+  <!-- 设置用户的激活状态status -->
+  <update id="updateStatus" parameterType="String">
+  	update t_user set status=true where uid=#{_parameter};
+  </update>
+  
+  <!-- 按照用户名（用户名/邮箱）和密码查询 -->
+  <select id="doLogin" parameterType="java.util.Map" resultMap="userResult">
+  	select uid,loginname,loginpass,email,status from t_user where 
+  	(loginname=#{username} or email=#{username}) and loginpass=#{password}; 
+  </select>
+  
+  <!-- 修改密码 -->
+  <update id="updateLoginpass" parameterType="java.util.Map">
+  	update t_user set loginpass=#{password} where loginname=#{username};
+  </update>
+</mapper>

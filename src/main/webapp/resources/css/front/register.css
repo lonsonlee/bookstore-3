@@ -1,0 +1,113 @@
+
+body{
+	background-color:#F9F9F9;
+	color:#333946;
+	
+}
+
+a{
+	text-decoration:none;
+	color:#5791D3;
+}
+
+#divFirstLine{
+	width:600px;
+	margin-top:30px;
+	margin-bottom:30px;
+	
+}
+
+#divTitle {
+	border-bottom:1px solid #D8DEE2;
+	
+	margin-left:50px;
+	display:inline;
+	float:left;
+	width:100px;
+	height:35px;
+	
+	font-size:22px;
+	
+}
+
+#divLogin{
+	border-bottom:1px solid #D8DEE2;
+	
+	margin-right:50px;
+	display:inline;
+	float:left;
+	width:400px;
+	height:35px;
+	text-align:right;
+	font-size:18px;
+	
+}
+
+#divForm {
+	background-color:#FFFFFF;
+	width: 600px; 
+	height: 600px; 
+	border:1px solid #D8DEE2;
+	margin-left:360px;
+	margin-top:100px;
+	
+}
+
+.tdText {
+	width: 165px; 
+	text-align: right;
+	
+	
+}
+
+.tdInput{
+	width: 260px;
+	padding-left:20px;
+	
+}
+
+.tdError {
+	width: 175px;
+	
+}
+
+#tableForm {
+	line-height: 60px;
+	
+}
+
+.inputClass {
+	width:250px;
+	height:35px;
+	border:1px solid #D8DEE2;
+	padding-left:8px;
+	
+	
+}
+
+#imgCaptcha {width: 100px;border:0px;height:60px;}
+
+#divCaptcha {
+	width: 250px;
+	height:60px;
+	text-align: center; 
+	border: 1px solid #e2e2e2;
+	
+	
+}
+
+.errorClass {
+	color: #f40000; 
+	font-size: 10pt; 
+	border:0px; 
+	
+}
+
+#submitBtn{
+	
+	background-color:#72C44E;
+	color:#FFFFE1;
+	border-radius:5px;
+	font-size:18px;
+	margin-top:20px;
+}
